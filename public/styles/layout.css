@@ -5,11 +5,11 @@
  */
 html {
   box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
-
 /*
  * Global layout stuff
  */
@@ -18,7 +18,123 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  display: flex;
+  justify-content: center;
 }
+
+
+/* //---STYLING NEW TWEETS// */
+.posted-tweet{
+  border: solid grey 2px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.posted-tweet:hover
+.icons{
+  display: block;
+  color: grey;
+  display: flex;
+}
+.posted-tweet:hover{
+  border-color: #26b2ad;
+}
+
+.posted-tweet-container{
+  width: 400px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-top: 20px;
+
+}
+.posted-tweet-container:hover{
+  border-color: #A9A9A9;
+}
+
+
+
+
+.posted-tweet-header{
+  height: 50px;
+  background-color: #E0E0E0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /* float: right; */
+}
+
+.tag_name{
+  display: flex;
+  color: grey;
+  margin-right: 10px;
+  padding: 15px;
+  justify-content: flex-end;
+}
+
+
+.profile-img{
+  float: left;
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  margin-top: 6px;
+  margin-left: 6px;
+}
+
+.post-text{
+  width: 400px;
+  border-color: black;
+  min-height: 60px;
+  overflow: visible;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.nickname{
+  float: left;
+  margin-top: 8px;
+}
+
+.days-ago{
+  border-top: 1px solid grey;
+}
+
+.time-ago{
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  width: 50%;
+  display: inline-block;
+}
+
+.footer-footer{
+  padding: 6px;
+  border-top: solid grey 1px;
+}
+
+.icons{
+width: 50%;
+display: inline-block;
+float: right;
+justify-content: flex-end;
+display: none;
+}
+
+.fas{
+padding: 4px;
+color: #26b2ad;
+}
+
+
+
+
+
+
+
+
+  /* flex-wrap: nowrap; */
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

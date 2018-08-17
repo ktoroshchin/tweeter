@@ -12,6 +12,7 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
+        console.log("loading all tweets")
         res.json(tweets);
       }
     });
@@ -27,7 +28,7 @@ module.exports = function(DataHelpers) {
     const tweet = {
       user: user,
       content: {
-        text: req.body.text
+        text: req.body.text,
       },
       created_at: Date.now()
     };
@@ -36,7 +37,7 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send();
+        res.status(201).send(tweet);
       }
     });
   });
