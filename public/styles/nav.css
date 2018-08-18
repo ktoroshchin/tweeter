@@ -33,6 +33,7 @@
   height: 40px;
   width: 100px;
   border-radius: 5px;
+  margin-left: auto;
 }
 .compose-button:hover{
   background-color: #40E0D0;

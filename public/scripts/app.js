@@ -67,7 +67,6 @@ entire HTML structure of the tweet.*/
 
     function createTweetElement(tweet) {
       let $tweet = $('<article>').addClass("posted-tweet");
-
       var $header = $("<header>").addClass("posted-tweet-header");
       var $avatar = $("<img>").addClass("profile-img").attr("src", tweet.user.avatars.small);
       var $user_name = $("<h2>").addClass("nickname").text(tweet.name);
@@ -77,7 +76,7 @@ entire HTML structure of the tweet.*/
       var $paragraph = $("<p>").addClass("post-text").text(tweet.content.text);
 
       var $footer = $("<footer>").addClass("footer-footer");
-      var $timeAgo = $("<p>").addClass("time-ago").text(tweet.created_at);
+      var $timeAgo = $("<p>").addClass("time-ago").text(timeSince(tweet.created_at));
       var $icons = $("<span>").addClass("icons");
       var $heartIcon = $("<i>").addClass("fas").addClass("fa-heart");
       var $recycleIcon = $("<i>").addClass("fas").addClass("fa-recycle");
@@ -114,11 +113,10 @@ entire HTML structure of the tweet.*/
         }
         /*we direct our post request to the server with a post method
         and usind serialize() pulling it of input field and convert into string*/
-        $.ajax('/tweets', { method: 'POST' , data: $(this).serialize() })
-        /* do the request and then do below*/
-        .then(function (response) {
+        /* do the request and only when it comes back then do below*/
+        $.ajax('/tweets', { method: 'POST' , data: $(this).serialize() }).then(function (response) {
           console.log('Success: ', response);
-          $(".posted-tweet-container").prepend(createTweetElement(response))
+          $(".posted-tweet-container").prepend(createTweetElement(response.tweet))
         });
       });
 
@@ -138,7 +136,38 @@ entire HTML structure of the tweet.*/
         .then(function (tweets) {
           console.log('Post that tweet... ', tweets);
           renderTweets(tweets);
-        })
-      }
-  loadTweets();
-});
+          })
+        }
+      loadTweets();
+      });
+
+  function timeSince(date) {
+
+  var seconds = Math.floor((new Date() - date) / 1000);
+
+  var interval = Math.floor(seconds / 31536000);
+
+  if (interval > 1) {
+    return interval + " years";
+  }
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) {
+    return interval + " months";
+  }
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) {
+    return interval + " days";
+  }
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) {
+    return interval + " hours";
+  }
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) {
+    return interval + " minutes";
+  }
+  return Math.floor(seconds) + " seconds";
+}
+var aDay = 24*60*60*1000
+console.log(timeSince(new Date(Date.now()-aDay)));
+console.log(timeSince(new Date(Date.now()-aDay*2)));
