@@ -104,11 +104,10 @@ entire HTML structure of the tweet.*/
         var current_tweet = $(this).children("textarea").val()
         if (current_tweet.length == 0 ) {
           /*if message is too short display error*/
-            $("<li>").css("color", "red").text("Your Message Is Too Short").appendTo($("ul.errors"))
+            $("<li>").css("color", "red").text("Please tweet something").appendTo($("ul.errors"))
         }
           /*if message is too long display error*/
           if (current_tweet.length > 140) {
-            $('#tweetButton').on("submit").after("<p color:red>Your Message Is Too Long</p>")
             $("<li>").css("color", "red").text("Your Message Is Too Long").appendTo($("ul.errors"))
         }
         /*we direct our post request to the server with a post method
