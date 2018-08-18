@@ -6,7 +6,9 @@ This repository is the starter code for the project: Students will fork and clon
 
 ##SCREENSHOTS
 
-!["Screenshot of tweet compose box"] (https://github.com/ktoroshchin/tweeter/blob/master/docs/Tweet-app%20input%20field%20on%20focus.png)
+!["Screenshot of tweet compose box"] 
+(https://github.com/ktoroshchin/tweeter/blob/master/docs/Tweet-app%20input%20field%20on%20focus.png)
+
 !["Screenshot of toogle input field"]
 (https://github.com/ktoroshchin/tweeter/blob/master/docs/Tweet-app-toggle%20input%20field.png)
 
